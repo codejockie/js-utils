@@ -4,7 +4,9 @@
   "description": "JavaScript/TypeScript commonly and rarely used utilities and helpers.",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest"
+    "compile": "tsc",
+    "prepare": "npm run compile && npm test",
+    "test": "jest --config=jest.config.json"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/codejockie/js-utils/issues"
   },
-  "homepage": "https://github.com/codejockie/js-utils#readme"
+  "homepage": "https://github.com/codejockie/js-utils#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.0",
+    "@types/node": "^14.0.13",
+    "codecov": "^3.7.0",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5"
+  }
 }
