@@ -1,0 +1,25 @@
+{
+  "name": "js-utils",
+  "version": "0.0.1",
+  "description": "JavaScript/TypeScript commonly and rarely used utilities and helpers.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codejockie/js-utils.git"
+  },
+  "keywords": [
+    "js-utils",
+    "ts-utils",
+    "js-helpers",
+    "ts-helpers"
+  ],
+  "author": "John C. Kennedy",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/codejockie/js-utils/issues"
+  },
+  "homepage": "https://github.com/codejockie/js-utils#readme"
+}
