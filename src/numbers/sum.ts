@@ -1,3 +1,7 @@
+function flatten(args: unknown[]): number[] {
+  return args.reduce((ac: number[], cv) => ac.concat(cv as number[]), [])
+}
+
 /**
  * Sum of the provided arguments.
  * @param args Any number of parameters (`number` or `number[]`) or Array of numbers
@@ -9,8 +13,4 @@ export function sum(...args: unknown[]): number {
       Array.isArray(b) ? b.reduce((bx, by) => bx + by, a) : a + b,
     0
   )
-}
-
-function flatten(args: unknown[]): number[] {
-  return args.reduce((ac: number[], cv) => ac.concat(cv as number[]), [])
 }
