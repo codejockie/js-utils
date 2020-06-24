@@ -3,6 +3,9 @@ module.exports = {
   env: {
     node: true,
   },
+  globals: {
+    Promise: "readonly"
+  },
   parser: "@typescript-eslint/parser",
   parserOptions: {
     sourceType: "module",
