@@ -1,6 +1,6 @@
 /**
  * Converts a value to its actual type where possible.
- * @param string: The value to be converted.
+ * @param arg The value to be converted.
  */
 export function toType(arg: unknown): unknown {
   if (typeof arg !== "string") {
