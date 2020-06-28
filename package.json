@@ -1,6 +1,6 @@
 {
   "name": "js-utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JavaScript/TypeScript commonly and rarely used utilities and helpers.",
   "main": "lib/index.js",
   "scripts": {
