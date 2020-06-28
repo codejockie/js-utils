@@ -1,10 +1,11 @@
 module.exports = {
   root: true,
   env: {
+    jest: true,
     node: true,
   },
   globals: {
-    Promise: "readonly"
+    Promise: "readonly",
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {
