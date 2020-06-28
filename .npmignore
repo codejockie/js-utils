@@ -1,0 +1,9 @@
+README.md
+jest.config.js
+tests/
+coverage/
+*.tgz
+.travis.yml
+.github/
+examples/
+src/
