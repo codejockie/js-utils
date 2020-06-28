@@ -1,8 +1,11 @@
 {
-  "name": "js-utils",
-  "version": "0.1.0",
+  "name": "js-uts",
+  "version": "0.0.1",
   "description": "JavaScript/TypeScript commonly and rarely used utilities and helpers.",
   "main": "lib/index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "compile": "tsc",
     "lint": "eslint . --ext .ts",
