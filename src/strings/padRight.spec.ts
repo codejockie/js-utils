@@ -1,16 +1,16 @@
-import { padRight } from "@/strings/padRight"
+import { padRight } from "@/strings/padRight";
 
 describe("padRight", () => {
   test("returns string if string length > given length", () => {
-    expect(padRight("testkey", 5)).toEqual("testkey")
-  })
+    expect(padRight("longer", 5)).toEqual("longer");
+  });
 
   test("pads string right by given length", () => {
-    expect(padRight("test", 5)).toEqual("test ")
-  })
+    expect(padRight("news", 5)).toEqual("news ");
+  });
 
   test("pads string right by given length and char", () => {
-    expect(padRight("test", 5, "*")).toEqual("test*")
-    expect(padRight("test", 9, "*")).toEqual("test*****")
-  })
-})
+    expect(padRight("news", 5, "*")).toEqual("news*");
+    expect(padRight("news", 9, "*")).toEqual("news*****");
+  });
+});

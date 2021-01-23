@@ -1,16 +1,21 @@
-import { toSnakeCase } from "@/strings/toSnakeCase"
+import { toSnakeCase } from "@/strings/toSnakeCase";
 
 describe("toSnakeCase", () => {
-  test("converts to snakecase", () => {
-    expect(toSnakeCase("ABCDEF")).toEqual("abcdef")
-    expect(toSnakeCase("abcDef")).toEqual("abc-def")
-    expect(toSnakeCase("AbcDef")).toEqual("abc-def")
-    expect(toSnakeCase("INTNerd")).toEqual("int-nerd")
-    expect(toSnakeCase("className")).toEqual("class-name")
-  })
+  test.each`
+    text           | result
+    ${"ABCDEF"}    | ${"abcdef"}
+    ${"BEGreat"}   | ${"be-great"}
+    ${"GoodNews"}  | ${"good-news"}
+    ${"className"} | ${"class-name"}
+  `("converts to snakecase", ({ text, result }) => {
+    expect(toSnakeCase(text)).toEqual(result);
+  });
 
-  test("allows another seperator", () => {
-    expect(toSnakeCase("htmlFor", "_")).toEqual("html_for")
-    expect(toSnakeCase("HtmlForName", "_")).toEqual("html_for_name")
-  })
-})
+  test.each`
+    text             | separator | result
+    ${"htmlFor"}     | ${"_"}    | ${"html_for"}
+    ${"HtmlForName"} | ${"_"}    | ${"html_for_name"}
+  `("allows another separator", ({ text, separator, result }) => {
+    expect(toSnakeCase(text, separator)).toEqual(result);
+  });
+});

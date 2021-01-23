@@ -1,9 +1,13 @@
-import { isHiragana } from "@/strings/isHiragana"
+import { isHiragana } from "@/strings/isHiragana";
 
 describe("isHiragana", () => {
-  test("checks for kanji", () => {
-    expect(isHiragana("漢字")).toEqual(false)
-    expect(isHiragana("カタカナ")).toEqual(false)
-    expect(isHiragana("ひらがな")).toEqual(true)
-  })
-})
+  test.each`
+    char          | result
+    ${"漢字"}     | ${false}
+    ${"カタカナ"} | ${false}
+    ${"ひらがな"} | ${true}
+    ${"Hello"}    | ${false}
+  `("checks for hiragana", ({ char, result }) => {
+    expect(isHiragana(char)).toEqual(result);
+  });
+});

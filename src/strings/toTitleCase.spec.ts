@@ -1,9 +1,12 @@
-import { toTitleCase } from "@/strings/toTitleCase"
+import { toTitleCase } from "@/strings/toTitleCase";
 
 describe("toTitleCase", () => {
-  test("converts a string to title case", () => {
-    expect(toTitleCase("I'm quick and light on my feet")).toEqual("I'm Quick And Light On My Feet")
-    expect(toTitleCase("A quick brown fox")).toEqual("A Quick Brown Fox")
-    expect(toTitleCase("jumped over the lazy dog")).toEqual("Jumped Over The Lazy Dog")
-  })
-})
+  test.each`
+    text                                | result
+    ${"I'm quick and light on my feet"} | ${"I'm Quick And Light On My Feet"}
+    ${"A quick brown fox"}              | ${"A Quick Brown Fox"}
+    ${"jumped over the lazy dog"}       | ${"Jumped Over The Lazy Dog"}
+  `("converts a string to title case", ({ text, result }) => {
+    expect(toTitleCase(text)).toEqual(result);
+  });
+});

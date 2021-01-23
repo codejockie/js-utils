@@ -1,19 +1,23 @@
-import { toCamelCase } from "@/strings/toCamelCase"
+import { toCamelCase } from "@/strings/toCamelCase";
 
 describe("toCamelCase", () => {
-  test("converts to camelcase", () => {
-    expect(toCamelCase("ABCDEF")).toEqual("ABCDEF")
-    expect(toCamelCase("abc-Def")).toEqual("abcDef")
-    expect(toCamelCase("Abc Def")).toEqual("AbcDef")
-    expect(toCamelCase("INT_Nerd")).toEqual("INTNerd")
-    expect(toCamelCase("className")).toEqual("className")
-  })
+  test.each`
+    text          | result
+    ${"ABCDEF"}   | ${"ABCDEF"}
+    ${"abc-Def"}  | ${"abcDef"}
+    ${"Abc Def"}  | ${"AbcDef"}
+    ${"INT_Nerd"} | ${"INTNerd"}
+  `("converts to camelcase", ({ text, result }) => {
+    expect(toCamelCase(text)).toEqual(result);
+  });
 
-  test("converts to pascalcase", () => {
-    expect(toCamelCase("abcDEF", true)).toEqual("AbcDEF")
-    expect(toCamelCase("abc-Def", true)).toEqual("AbcDef")
-    expect(toCamelCase("Abc Def", true)).toEqual("AbcDef")
-    expect(toCamelCase("INT_Nerd", true)).toEqual("INTNerd")
-    expect(toCamelCase("className", true)).toEqual("ClassName")
-  })
-})
+  test.each`
+    text           | upper   | result
+    ${"abc-Def"}   | ${true} | ${"AbcDef"}
+    ${"Abc Def"}   | ${true} | ${"AbcDef"}
+    ${"INT_Nerd"}  | ${true} | ${"INTNerd"}
+    ${"className"} | ${true} | ${"ClassName"}
+  `("converts to pascalcase", ({ text, result, upper }) => {
+    expect(toCamelCase(text, upper)).toEqual(result);
+  });
+});

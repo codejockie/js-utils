@@ -1,9 +1,12 @@
-import { isKatakana } from "@/strings/isKatakana"
+import { isKatakana } from "@/strings/isKatakana";
 
 describe("isKatakana", () => {
-  test("checks for kanji", () => {
-    expect(isKatakana("漢字")).toEqual(false)
-    expect(isKatakana("カタカナ")).toEqual(true)
-    expect(isKatakana("ひらがな")).toEqual(false)
-  })
-})
+  test.each`
+    char          | result
+    ${"漢字"}     | ${false}
+    ${"カタカナ"} | ${true}
+    ${"ひらがな"} | ${false}
+  `("checks for katakana", ({ char, result }) => {
+    expect(isKatakana(char)).toEqual(result);
+  });
+});
