@@ -1,9 +1,12 @@
-import { getFullMonth } from "@/datetime/getFullMonth"
+import { getFullMonth } from "@/datetime/getFullMonth";
 
 describe("getFullMonth", () => {
-  test("should return the week", () => {
-    expect(getFullMonth(0)).toEqual("January")
-    expect(getFullMonth(5)).toEqual("June")
-    expect(getFullMonth(11)).toEqual("December")
-  })
-})
+  test.each`
+    month | monthName
+    ${0}  | ${"January"}
+    ${5}  | ${"June"}
+    ${10} | ${"November"}
+  `("should return the month name", ({ month, monthName }) => {
+    expect(getFullMonth(month)).toEqual(monthName);
+  });
+});

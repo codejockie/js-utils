@@ -1,7 +1,6 @@
 /**
- * 半角カタカナを全角カタカナに変換
- *
  * Converts half-width katakana to full-width katakana.
+ * 半角カタカナを全角カタカナに変換
  *
  * @param str 変換したい文字列 String you want to convert.
  */
@@ -29,9 +28,9 @@ export function hankanaZenkana(str: string): string {
     "｡": "。", "､": "、", "ｰ": "ー", "｢": "「", "｣": "」", "･": "・"
   }
 
-  const regex = new RegExp(`(${Object.keys(kanaMap).join("|")})`, "g")
+  const regex = new RegExp(`(${Object.keys(kanaMap).join("|")})`, "g");
   return str
-    .replace(regex, (match: string) => kanaMap[match])
+    .replace(regex, (match) => kanaMap[match])
     .replace(/ﾞ/g, "゛")
-    .replace(/ﾟ/g, "゜")
+    .replace(/ﾟ/g, "゜");
 }

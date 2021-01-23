@@ -1,9 +1,12 @@
-import { getWeekDay } from "@/datetime/getWeekDay"
+import { getWeekDay } from "@/datetime/getWeekDay";
 
 describe("getWeekDay", () => {
-  test("should return the week", () => {
-    expect(getWeekDay(1)).toEqual("Monday")
-    expect(getWeekDay(5)).toEqual("Friday")
-    expect(getWeekDay(3)).toEqual("Wednesday")
-  })
-})
+  test.each`
+    week | weekName
+    ${1} | ${"Monday"}
+    ${5} | ${"Friday"}
+    ${3} | ${"Wednesday"}
+  `("should return the week day name", ({ week, weekName }) => {
+    expect(getWeekDay(week)).toEqual(weekName);
+  });
+});

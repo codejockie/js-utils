@@ -1,3 +1,6 @@
+import { Options } from "@/types/options";
+import { fromCharCodeSub } from "@/utils/fromCharCode";
+
 /**
  * 全角から半角に置き換え
  *
@@ -16,46 +19,32 @@
  * @param {Boolean} alpha 英字 falseを指定した場合は変換なし
  * @param {Boolean} num 数字 falseを指定した場合は変換なし
  */
-export function zenHan(
-  str: string,
-  tilde: boolean,
-  mark: boolean,
-  hanKana: boolean,
-  space: boolean,
-  alpha: boolean,
-  num: boolean
-) {
+export function zenHan(str: string, options: Options): string {
+  const { alpha, hanKana, mark, num, space, tilde } = options;
   if (alpha !== false) {
-    str = str.replace(/[Ａ-Ｚａ-ｚ]/g, function (s) {
-      return String.fromCharCode(s.charCodeAt(0) - 65248)
-    })
+    str = str.replace(/[Ａ-Ｚａ-ｚ]/g, fromCharCodeSub);
   }
   if (num !== false) {
-    str = str.replace(/[０-９]/g, function (s) {
-      return String.fromCharCode(s.charCodeAt(0) - 65248)
-    })
+    str = str.replace(/[０-９]/g, fromCharCodeSub);
   }
   if (mark !== false) {
-    const reg = /[！＂＃＄％＆＇（）＊＋，－．／：；＜＝＞？＠［＼］＾＿｀｛｜｝]/g
-    str = str
-      .replace(reg, function (s) {
-        return String.fromCharCode(s.charCodeAt(0) - 65248)
-      })
-      .replace(/[‐－―]/g, "-")
+    const reg = /[！＂＃＄％＆＇（）＊＋，－．／：；＜＝＞？＠［＼］＾＿｀｛｜｝]/g;
+    str = str.replace(reg, fromCharCodeSub).replace(/[‐－―]/g, "-");
   }
   if (tilde !== false) {
-    str = str.replace(/[～〜]/g, "~")
+    str = str.replace(/[～〜]/g, "~");
   }
   if (space !== false) {
-    str = str.replace(/　/g, " ")
+    // eslint-disable-next-line no-irregular-whitespace
+    str = str.replace(/　/g, " ");
   }
   if (hanKana === true) {
     // prettier-ignore
     const charMap: { [key: string]: string } = { "。": "｡", "、": "､", "「": "｢", "」": "｣", "・": "･" }
-    const reg = new RegExp(`(${Object.keys(charMap).join("|")})`, "g")
+    const reg = new RegExp(`(${Object.keys(charMap).join("|")})`, "g");
     str = str.replace(reg, function (match) {
-      return charMap[match]
-    })
+      return charMap[match];
+    });
   }
-  return str
+  return str;
 }
