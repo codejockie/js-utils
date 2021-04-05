@@ -1,8 +1,8 @@
 /**
- * Converts half-width katakana to full-width katakana.
+ * Converts half-width katakana to full-width katakana
  * 半角カタカナを全角カタカナに変換
  *
- * @param str 変換したい文字列 String you want to convert.
+ * @param str 変換したい文字列 String you want to convert
  */
 export function hankanaZenkana(str: string): string {
   // prettier-ignore
