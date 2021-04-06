@@ -7,5 +7,5 @@ export function getWeekDay(date: number): string {
     "Thursday",
     "Friday",
     "Saturday",
-  ][date]
+  ][date];
 }

@@ -4,23 +4,23 @@
  */
 export function toType(arg: unknown): unknown {
   if (typeof arg !== "string") {
-    return arg
+    return arg;
   }
 
-  const lower = arg.toLowerCase().trim()
+  const lower = arg.toLowerCase().trim();
 
   switch (lower) {
     case "null":
-      return null
+      return null;
     case "undefined":
-      return undefined
+      return undefined;
 
     default:
       try {
-        return JSON.parse(lower) as unknown
+        return JSON.parse(lower) as unknown;
       } catch {
         // Original Type
-        return arg
+        return arg;
       }
   }
 }

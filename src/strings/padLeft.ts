@@ -3,7 +3,7 @@
  */
 export function padLeft(str: string, length: number, char = " "): string {
   if (str.length >= length) {
-    return str
+    return str;
   }
-  return Array(length - str.length + 1).join(char) + str
+  return Array(length - str.length + 1).join(char) + str;
 }

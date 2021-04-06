@@ -7,6 +7,6 @@
 export function toCamelCase(str: string, upper = false): string {
   str = str
     .replace(/^[-_ ]/g, "")
-    .replace(/[-_ ]./g, (match) => match.charAt(1).toUpperCase())
-  return upper ? str.replace(/^[a-z]/g, (match) => match.toUpperCase()) : str
+    .replace(/[-_ ]./g, (match) => match.charAt(1).toUpperCase());
+  return upper ? str.replace(/^[a-z]/g, (match) => match.toUpperCase()) : str;
 }

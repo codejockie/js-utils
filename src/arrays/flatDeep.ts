@@ -11,5 +11,5 @@ export function flatDeep(arr: unknown[], depth = 1): unknown[] {
           acc.concat(Array.isArray(val) ? flatDeep(val, depth - 1) : val),
         []
       )
-    : arr.slice()
+    : arr.slice();
 }

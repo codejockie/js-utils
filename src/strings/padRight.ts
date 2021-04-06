@@ -3,7 +3,7 @@
  */
 export function padRight(str: string, length: number, char = " "): string {
   if (str.length >= length) {
-    return str
+    return str;
   }
-  return str + Array(length - str.length + 1).join(char)
+  return str + Array(length - str.length + 1).join(char);
 }

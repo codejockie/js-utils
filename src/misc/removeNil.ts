@@ -5,6 +5,6 @@
 export function removeNil(arg: Record<string, unknown> | unknown[]): unknown {
   const stringified = JSON.stringify(arg, (k: string, value: unknown) =>
     value == null ? undefined : value
-  )
-  return JSON.parse(stringified) as unknown
+  );
+  return JSON.parse(stringified) as unknown;
 }

@@ -1,4 +1,4 @@
-import { getTimes } from "@/datetime/getTimes"
+import { getTimes } from "@/datetime/getTimes";
 
 describe("getTimes", () => {
   test("should get times from 00:00 to 23:45", () => {
@@ -21,5 +21,5 @@ describe("getTimes", () => {
       "21:00", "21:15", "21:30", "21:45", "22:00", "22:15",
       "22:30", "22:45", "23:00", "23:15", "23:30", "23:45"
     ])
-  })
-})
+  });
+});

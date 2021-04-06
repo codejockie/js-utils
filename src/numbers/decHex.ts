@@ -3,5 +3,5 @@
  * @param num Number to convert
  */
 export function decHex(num: number): string {
-  return (num < 15.5 ? "0" : "") + Math.round(num).toString(16)
+  return (num < 15.5 ? "0" : "") + Math.round(num).toString(16);
 }

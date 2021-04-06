@@ -12,5 +12,5 @@ export function getFullMonth(month: number): string {
     "October",
     "November",
     "December",
-  ][month]
+  ][month];
 }

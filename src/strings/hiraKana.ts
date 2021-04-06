@@ -31,9 +31,9 @@ export function hiraKana(str: string, opt: boolean): string {
     .replace(/(ヲ゛)/g, "ヺ")
     .replace(/(ゝ゛)/g, "ヾ")
     .replace(/ゝ/g, "ヽ")
-    .replace(/ゞ/g, "ヾ")
+    .replace(/ゞ/g, "ヾ");
   if (opt !== false) {
-    str = str.replace(/ゕ/g, "ヵ").replace(/ゖ/g, "ヶ")
+    str = str.replace(/ゕ/g, "ヵ").replace(/ゖ/g, "ヶ");
   }
-  return str
+  return str;
 }

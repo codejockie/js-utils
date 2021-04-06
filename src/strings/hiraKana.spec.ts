@@ -127,9 +127,9 @@ describe("hiraKana", () => {
 
   describe("with option set to true", () => {
     test.each`
-      hiragana          | katakana        | option
-      ${"あさひゕおか"} | ${"アサヒヵオカ"} | ${true}
-      ${"いちゖげつかん"}   | ${"イチヶゲツカン"}         | ${true}
+      hiragana            | katakana            | option
+      ${"あさひゕおか"}   | ${"アサヒヵオカ"}   | ${true}
+      ${"いちゖげつかん"} | ${"イチヶゲツカン"} | ${true}
     `("converts $hiragana -> $katakana", ({ hiragana, katakana, option }) => {
       expect(hiraKana(hiragana, option)).toEqual(katakana);
     });

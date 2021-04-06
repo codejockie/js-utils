@@ -6,11 +6,24 @@ describe("flatDeep", () => {
   });
 
   test("should flatten two levels deep", () => {
-    expect(flatDeep([10, 20, [30, 4, [5, 6]]], 2)).toEqual([10, 20, 30, 4, 5, 6]);
+    expect(flatDeep([10, 20, [30, 4, [5, 6]]], 2)).toEqual([
+      10,
+      20,
+      30,
+      4,
+      5,
+      6,
+    ]);
   });
 
   test("should flatten one level deep when depth is omitted", () => {
-    expect(flatDeep([1, 2, [30, 4, [50, 60]]])).toEqual([1, 2, 30, 4, [50, 60]]);
+    expect(flatDeep([1, 2, [30, 4, [50, 60]]])).toEqual([
+      1,
+      2,
+      30,
+      4,
+      [50, 60],
+    ]);
   });
 
   test("should flatten to (∞) infinity level deep", () => {

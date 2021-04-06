@@ -7,5 +7,5 @@ export function isKanji(char: string): boolean {
   return (
     (char >= "\u4e00" && char <= "\u9faf") ||
     (char >= "\u3400" && char <= "\u4dbf")
-  )
+  );
 }

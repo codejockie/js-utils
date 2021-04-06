@@ -1,4 +1,4 @@
-import { removeNil } from "@/misc/removeNil"
+import { removeNil } from "@/misc/removeNil";
 
 describe("removeNil", () => {
   test("(Object) removes null, undefined values", () => {
@@ -20,7 +20,7 @@ describe("removeNil", () => {
           array: [1, 2, 3],
         },
       ],
-    }
+    };
     const expected = {
       array: [1, 2, 3],
       arrayOfObjects: [
@@ -29,13 +29,13 @@ describe("removeNil", () => {
       emptyString: "",
       integer: 0,
       object: { string: "value" },
-    }
-    expect(removeNil(testData)).toEqual(expected)
-  })
+    };
+    expect(removeNil(testData)).toEqual(expected);
+  });
 
   test("(Array) removes null, undefined values", () => {
-    const data = [{ null: null, undefined: undefined }]
-    const expected = [{}]
-    expect(removeNil(data)).toEqual(expected)
-  })
-})
+    const data = [{ null: null, undefined: undefined }];
+    const expected = [{}];
+    expect(removeNil(data)).toEqual(expected);
+  });
+});
