@@ -1,4 +1,6 @@
-module.exports = {
+import type { Config } from "@jest/types";
+
+const config: Config.InitialOptions = {
   collectCoverage: true,
   coverageReporters: ["html", "json", "lcov", "text"],
   moduleFileExtensions: ["ts", "js"],
@@ -10,4 +12,5 @@ module.exports = {
   transform: {
     "^.+\\.tsx?$": "ts-jest",
   },
-}
+};
+export default config;
