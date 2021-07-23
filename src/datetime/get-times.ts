@@ -12,12 +12,12 @@ export function getTimes(interval: number, meridiem = true): string[] {
     (_, i) => {
       let hour: number | string = Math.floor((i * interval) / 60);
       let min: number | string = i * interval - hour * 60;
-      let label = meridiem ? ` ${meridiems[Math.floor(hour / 12)]}` : "";
+      const label = meridiem ? ` ${meridiems[Math.floor(hour / 12)]}` : "";
       // Pad zero to the left of minute
-      min = ("0" + min).slice(-2);
+      min = `0${min}`.slice(-2);
       // Convert to 12 hours time (if meridiem = true) and pad
-      hour = hour == 12 ? 12 : ("0" + (meridiem ? hour % 12 : hour)).slice(-2);
-      return hour + ":" + min + label;
+      hour = hour == 12 ? 12 : `0${meridiem ? hour % 12 : hour}`.slice(-2);
+      return `${hour}:${min}${label}`;
     }
   );
 }

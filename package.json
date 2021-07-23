@@ -34,11 +34,13 @@
     "codecov": "^3.7.1",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
     "prettier-eslint": "^12.0.0",
     "prettier-eslint-cli": "^5.0.1",
     "ts-jest": "^26.5.4",
+    "ts-node": "^10.1.0",
     "typescript": "^4.2.3"
   }
 }
