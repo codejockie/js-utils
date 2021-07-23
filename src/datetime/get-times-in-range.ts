@@ -37,10 +37,10 @@ export const getTimesInRange = (
   while (start < end) {
     let hour: number | string = new Date(start).getHours();
     let minute: number | string = new Date(start).getMinutes();
-    const meridianIndicator = meridiems[Math.floor(hour / 12)];
+    const meridiemIndicator = meridiems[Math.floor(hour / 12)];
     minute = `0${minute}`.slice(-2);
     hour = hour == 12 ? 12 : `0${hour % 12}`.slice(-2);
-    times.push(`${hour}:${minute} ${meridianIndicator}`);
+    times.push(`${hour}:${minute} ${meridiemIndicator}`);
     start += interval * 1000 * 60;
   }
   return times;
