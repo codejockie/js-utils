@@ -5,7 +5,7 @@ export const getTimesInRange = (
   interval: number,
   from: string | Date,
   to: string | Date
-) => {
+): string[] => {
   const isValidFrom = typeof from === "string" && timeFormat.test(from);
   const isValidTo = typeof to === "string" && timeFormat.test(to);
   const isValidStringFormat = isValidFrom && isValidTo;
@@ -35,12 +35,12 @@ export const getTimesInRange = (
   let start = startDate.getTime();
 
   while (start < end) {
-    let hour = new Date(start).getHours();
-    let minute = new Date(start).getMinutes();
-    let meridianIndicator = meridiems[Math.floor(hour / 12)];
-    const paddedMinute = ("0" + minute).slice(-2);
-    const paddedHour = hour == 12 ? 12 : ("0" + (hour % 12)).slice(-2);
-    times.push(paddedHour + ":" + paddedMinute + " " + meridianIndicator);
+    let hour: number | string = new Date(start).getHours();
+    let minute: number | string = new Date(start).getMinutes();
+    const meridianIndicator = meridiems[Math.floor(hour / 12)];
+    minute = `0${minute}`.slice(-2);
+    hour = hour == 12 ? 12 : `0${hour % 12}`.slice(-2);
+    times.push(`${hour}:${minute} ${meridianIndicator}`);
     start += interval * 1000 * 60;
   }
   return times;
