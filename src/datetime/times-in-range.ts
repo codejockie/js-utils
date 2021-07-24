@@ -1,11 +1,17 @@
 const meridiems = ["AM", "PM"];
 const timeFormat = /^\d{1,2}:\d{1,2} ?((A|P)M)?$/i;
 
-export const getTimesInRange = (
+/**
+ * Get times between two times at an increment of `interval`.
+ * @param interval The interval is an integer greater than 0.
+ * @param from The start point in time.
+ * @param to The end point in time. This is excluded in the result.
+ */
+export function timesInRange(
   interval: number,
   from: string | Date,
   to: string | Date
-): string[] => {
+): string[] {
   const isValidFrom = typeof from === "string" && timeFormat.test(from);
   const isValidTo = typeof to === "string" && timeFormat.test(to);
   const isValidStringFormat = isValidFrom && isValidTo;
@@ -23,8 +29,8 @@ export const getTimesInRange = (
   let startDate: Date;
 
   if (typeof from === "string" && typeof to === "string") {
-    endDate = new Date(`2000-01-01 ${to}`);
-    startDate = new Date(`2000-01-01 ${from}`);
+    endDate = new Date(`0000-01-01 ${to}`);
+    startDate = new Date(`0000-01-01 ${from}`);
   } else {
     endDate = to as Date;
     startDate = from as Date;
@@ -37,11 +43,11 @@ export const getTimesInRange = (
   while (start < end) {
     let hour: number | string = new Date(start).getHours();
     let minute: number | string = new Date(start).getMinutes();
-    const meridiemIndicator = meridiems[Math.floor(hour / 12)];
+    const meridiem = meridiems[Math.floor(hour / 12)];
     minute = `0${minute}`.slice(-2);
     hour = hour == 12 ? 12 : `0${hour % 12}`.slice(-2);
-    times.push(`${hour}:${minute} ${meridiemIndicator}`);
+    times.push(`${hour}:${minute} ${meridiem}`);
     start += interval * 1000 * 60;
   }
   return times;
-};
+}
