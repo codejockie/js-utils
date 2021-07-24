@@ -1,4 +1,4 @@
-export function getFullMonth(month: number): string {
+export function fullMonth(month: number): string {
   return [
     "January",
     "February",

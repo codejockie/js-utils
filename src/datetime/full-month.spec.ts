@@ -1,12 +1,12 @@
-import { getFullMonth } from "@/datetime/getFullMonth";
+import { fullMonth } from "@/datetime/full-month";
 
-describe("getFullMonth", () => {
+describe("fullMonth", () => {
   test.each`
     month | monthName
     ${0}  | ${"January"}
     ${5}  | ${"June"}
     ${10} | ${"November"}
   `("should return the month name", ({ month, monthName }) => {
-    expect(getFullMonth(month)).toEqual(monthName);
+    expect(fullMonth(month)).toEqual(monthName);
   });
 });

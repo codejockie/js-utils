@@ -2,7 +2,7 @@
  * Gets the week for the given date.
  * @param date Custom Date instance
  */
-export function getWeek(date: Date): number {
+export function week(date: Date): number {
   const day = date.getDate();
   const month = date.getMonth();
   const year = date.getFullYear();

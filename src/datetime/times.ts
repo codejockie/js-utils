@@ -1,6 +1,10 @@
 const meridiems = ["AM", "PM"];
-
-export function getTimes(interval: number, meridiem = true): string[] {
+/**
+ * Get times from start of time (00:00) and end of time (23:59) at an increment of `interval`.
+ * @param interval
+ * @param meridiem
+ */
+export function times(interval: number, meridiem = true): string[] {
   if (interval == null || interval <= 0) {
     throw new Error("Interval must be an integer greater than zero");
   }

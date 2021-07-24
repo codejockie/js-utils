@@ -1,4 +1,4 @@
-export function getWeekDay(date: number): string {
+export function weekDay(date: number): string {
   return [
     "Sunday",
     "Monday",

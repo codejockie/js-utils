@@ -1,6 +1,6 @@
-import { getTimes } from "@/datetime/get-times";
+import { times } from "@/datetime/times";
 
-describe("getTimes", () => {
+describe("times", () => {
   describe("validations", () => {
     describe("with invalid interval", () => {
       test.each`
@@ -10,7 +10,7 @@ describe("getTimes", () => {
         ${-15}
         ${0}
       `("should throw for interval of $interval", ({ interval }) => {
-        expect(() => getTimes(interval)).toThrow();
+        expect(() => times(interval)).toThrow();
       });
     });
   });
@@ -19,7 +19,7 @@ describe("getTimes", () => {
     describe("and meridiem of false", () => {
       test("should get times from 00:00 to 23:45", () => {
         // prettier-ignore
-        expect(getTimes(15, false)).toEqual([
+        expect(times(15, false)).toEqual([
           "00:00", "00:15", "00:30", "00:45", "01:00", "01:15",
           "01:30", "01:45", "02:00", "02:15", "02:30", "02:45",
           "03:00", "03:15", "03:30", "03:45", "04:00", "04:15",
@@ -43,7 +43,7 @@ describe("getTimes", () => {
     describe("and meridiem of true", () => {
       test("should get times from 00:00 to 23:45", () => {
         // prettier-ignore
-        expect(getTimes(15)).toEqual([
+        expect(times(15)).toEqual([
           "00:00 AM", "00:15 AM", "00:30 AM", "00:45 AM", "01:00 AM", "01:15 AM",
           "01:30 AM", "01:45 AM", "02:00 AM", "02:15 AM", "02:30 AM", "02:45 AM",
           "03:00 AM", "03:15 AM", "03:30 AM", "03:45 AM", "04:00 AM", "04:15 AM",

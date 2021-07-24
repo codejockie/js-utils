@@ -1,5 +1,5 @@
 /**
- * Gets the number of days elapsed between two dates. `to` not inclusive.
+ * Get the number of days elapsed between two dates. `to` not inclusive.
  * @param from Start date
  * @param to End date
  */
